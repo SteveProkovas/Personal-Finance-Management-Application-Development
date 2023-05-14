@@ -1,4 +1,4 @@
 # Personal-Finance-Management-Application-Development
-Steve Prokovas Computer Science HOU
+Steve Prokovas Computer Science at Hellenic Open University
 
-Kostas Manikas Computer Science HOU 
+Kostas Manikas Computer Science at Hellenic Open University 
