@@ -77,3 +77,16 @@ def dashboard():
 
 if __name__ == '__main__':
     app.run(debug=True)
+# Path: dbusers.db
+# Table: users
+# Columns: id, email, password
+# Data: 1, admin@admin, admin                  # admin
+#       2, user@user, user                     # user
+#       3, test@test, test                     # test
+#       4, test2@test, test2                   # test2  
+#       5, test3@test, test3                   # test3
+#       6, test4@test, test4                   # test4
+#       7, test5@test, test5                   # test5
+#       8, test6@test, test6                   # test6
+#       9, test7@test, test7                   # test7
+#       10, test8@test, test8                  # test8
