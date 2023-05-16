@@ -35,6 +35,27 @@ def signup():
         create_user(email, password)
         status_label.config(text="Signup successful!", fg="green")
 
+def show_emergency_fund():
+    status_label.config(text="Here's how you can maximize your savings for an emergency fund.")
+
+def show_debt_payment():
+    status_label.config(text="Here's how you can pay off your debt.")
+
+# Create the main window
+root = tk.Tk()
+root.title("Investment Account")
+root.geometry("400x500")
+root.resizable(False, False)
+root.config(bg="#F5F5F5")
+
+# Create the header label
+header_label = tk.Label(root, text="Investment Account", font=("Helvetica", 20), bg="#F5F5F5", fg="#333333")
+header_label.pack(pady=20)
+
+# Create the user label
+user_label = tk.Label(root, text="", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+user_label.pack()
+
 # Create the main window
 root = tk.Tk()
 root.title("Login or Signup")
