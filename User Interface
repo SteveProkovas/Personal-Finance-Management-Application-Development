@@ -22,7 +22,8 @@ def login():
     email = email_entry.get()
     password = password_entry.get()
     if authenticate_user(email, password):
-        status_label.config(text="Login successful!", fg="green")
+        root.withdraw()
+        main_window(email)
     else:
         status_label.config(text="Invalid email or password.", fg="red")
 
@@ -35,21 +36,124 @@ def signup():
         create_user(email, password)
         status_label.config(text="Signup successful!", fg="green")
 
-def show_emergency_fund():
-    status_label.config(text="Here's how you can maximize your savings for an emergency fund.")
+def main_window(email):
+    main_window = tk.Toplevel(root)
+    main_window.title("Investment Account")
+    main_window.geometry("400x500")
+    main_window.resizable(False, False)
+    main_window.config(bg="#F5F5F5")
 
-def show_debt_payment():
-    status_label.config(text="Here's how you can pay off your debt.")
+    header_label = tk.Label(main_window, text="Investment Account", font=("Helvetica", 20), bg="#F5F5F5", fg="#333333")
+    header_label.pack(pady=20)
+
+    user_label = tk.Label(main_window, text=f"Hello {email}! How may I help you?", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+    user_label.pack()
+
+    emergency_button = tk.Button(main_window, text="Emergency Fund", font=("Helvetica", 14), bg="#4CAF50", fg="#FFFFFF",
+                                 activebackground="#4CAF50", activeforeground="#FFFFFF", bd=0, highlightthickness=0,
+                                 command=lambda: show_emergency_options(main_window))
+    emergency_button.pack(pady=20)
+
+    debt_button = tk.Button(main_window, text="Debt Payment", font=("Helvetica", 14), bg="#2196F3", fg="#FFFFFF",
+                            activebackground="#2196F3", activeforeground="#FFFFFF", bd=0, highlightthickness=0,
+                            command=lambda: show_debt_options(main_window))
+    debt_button.pack()
+
+def show_emergency_options(main_window):
+    options_window = tk.Toplevel(main_window)
+    options_window.title("Emergency Fund Options")
+    options_window.geometry("400x300")
+    options_window.resizable(False, False)
+    options_window.config(bg="#F5F5F5")
+
+    header_label = tk.Label(options_window, text="Emergency Fund Options", font=("Helvetica", 16), bg="#F5F5F5", fg="#333333")
+    header_label.pack(pady=20)
+
+    create_button = tk.Button(options_window, text="Create Emergency Fund", font=("Helvetica", 14), bg="#4CAF50", fg="#FFFFFF",
+                              activebackground="#4CAF50", activeforeground="#FFFFFF", bd=0, highlightthickness=0,
+                              command=lambda: show_create_emergency(options_window))
+    create_button.pack(pady=10)
+
+    maximize_button = tk.Button(options_window, text="Maximize Emergency Fund", font=("Helvetica", 14), bg="#2196F3", fg="#FFFFFF",
+                                activebackground="#2196F3", activeforeground="#FFFFFF", bd=0, highlightthickness=0,
+                                command=lambda: show_maximize_emergency(options_window))
+    maximize_button.pack()
+
+def show_create_emergency(options_window):
+    create_window = tk.Toplevel(options_window)
+    create_window.title("Create Emergency Fund")
+    create_window.geometry("400x300")
+    create_window.resizable(False, False)
+    create_window.config(bg="#F5F5F5")
+
+    header_label = tk.Label(create_window, text="Creating an Emergency Fund", font=("Helvetica", 16), bg="#F5F5F5", fg="#333333")
+    header_label.pack(pady=20)
+
+    # Add the explanation and example for creating an emergency fund
+    explanation_label = tk.Label(create_window, text="Here's how you can create an emergency fund:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+    explanation_label.pack()
+
+    example_label = tk.Label(create_window, text="Example:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+    example_label.pack()
+
+def show_maximize_emergency(options_window):
+    maximize_window = tk.Toplevel(options_window)
+    maximize_window.title("Maximize Emergency Fund")
+    maximize_window.geometry("400x300")
+    maximize_window.resizable(False, False)
+    maximize_window.config(bg="#F5F5F5")
+
+    header_label = tk.Label(maximize_window, text="Maximizing Your Emergency Fund", font=("Helvetica", 16), bg="#F5F5F5", fg="#333333")
+    header_label.pack(pady=20)
+
+    # Add the explanation and example for maximizing an emergency fund
+    explanation_label = tk.Label(maximize_window, text="Here's how you can maximize your emergency fund:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+    explanation_label.pack()
+
+    example_label = tk.Label(maximize_window, text="Example:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+    example_label.pack()
+
+def show_debt_options(main_window):
+    options_window = tk.Toplevel(main_window)
+    options_window.title("Debt Payment Options")
+    options_window.geometry("400x300")
+    options_window.resizable(False, False)
+    options_window.config(bg="#F5F5F5")
+
+    header_label = tk.Label(options_window, text="Debt Payment Options", font=("Helvetica", 16), bg="#F5F5F5", fg="#333333")
+    header_label.pack(pady=20)
+
+    payment_button = tk.Button(options_window, text="How to Pay Off Debt", font=("Helvetica", 14), bg="#4CAF50", fg="#FFFFFF",
+                               activebackground="#4CAF50", activeforeground="#FFFFFF", bd=0, highlightthickness=0,
+                               command=lambda: show_debt_payment(options_window))
+    payment_button.pack(pady=10)
+
+def show_debt_payment(options_window):
+    payment_window = tk.Toplevel(options_window)
+    payment_window.title("Paying Off Debt")
+    payment_window.geometry("400x300")
+    payment_window.resizable(False, False)
+    payment_window.config(bg="#F5F5F5")
+
+    header_label = tk.Label(payment_window, text="Paying Off Debt", font=("Helvetica", 16), bg="#F5F5F5", fg="#333333")
+    header_label.pack(pady=20)
+
+    # Add the explanation and example for paying off debt
+    explanation_label = tk.Label(payment_window, text="Here's how you can pay off your debt:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+    explanation_label.pack()
+
+    example_label = tk.Label(payment_window, text="Example:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+    example_label.pack()
 
 # Create the main window
 root = tk.Tk()
-root.title("Investment Account")
-root.geometry("400x500")
+root.title("Login or Signup")
+root.geometry("400x300")
 root.resizable(False, False)
 root.config(bg="#F5F5F5")
 
 # Create the header label
-header_label = tk.Label(root, text="Investment Account", font=("Helvetica", 20), bg="#F5F5F5", fg="#333333")
+header_label = tk.Label(root, text="Νιγηριανός Πρίγκιπας", font=("Helvetica", 20), bg="#F5F5F5", fg="#333333")
 header_label.pack(pady=20)
 
 # Create the email label and entry widget
@@ -79,7 +183,8 @@ signup_button.pack(side=tk.LEFT, padx=(0, 20), ipadx=10, ipady=8, fill=tk.BOTH, 
 button_frame.pack(fill=tk.BOTH, padx=40, pady=(0, 20))
 
 # Create the status label
-status_label = tk.Label(root, text="", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+status_label = tk.Label(root, text="", font=("Helvetica", 14), bg="#F5F5F5", fg="red")
 status_label.pack()
 
+# Start the Tkinter event loop
 root.mainloop()
