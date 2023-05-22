@@ -52,21 +52,6 @@ root.config(bg="#F5F5F5")
 header_label = tk.Label(root, text="Investment Account", font=("Helvetica", 20), bg="#F5F5F5", fg="#333333")
 header_label.pack(pady=20)
 
-# Create the user label
-user_label = tk.Label(root, text="", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
-user_label.pack()
-
-# Create the main window
-root = tk.Tk()
-root.title("Login or Signup")
-root.geometry("400x300")
-root.resizable(False, False)
-root.config(bg="#F5F5F5")
-
-# Create the header label
-header_label = tk.Label(root, text="Νιγηριανός Πρίγκιπας", font=("Helvetica", 20), bg="#F5F5F5", fg="#333333")
-header_label.pack(pady=20)
-
 # Create the email label and entry widget
 email_frame = tk.Frame(root, bg="#F5F5F5")
 email_label = tk.Label(email_frame, text="Email:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
