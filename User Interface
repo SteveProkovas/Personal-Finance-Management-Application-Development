@@ -59,6 +59,10 @@ def main_window(email):
                             command=lambda: show_debt_options(main_window))
     debt_button.pack()
 
+    investment_button = tk.Button(main_window, text="Investment Account", font=("Helvetica", 14), bg="#4CAF50", fg="#FFFFFF",
+                                 activebackground="#4CAF50", activeforeground="#FFFFFF", bd=0, highlightthickness=0,
+                                 command=lambda: show_investment_options(main_window))
+    investment_button.pack(pady=20)
 def show_emergency_options(main_window):
     options_window = tk.Toplevel(main_window)
     options_window.title("Emergency Fund Options")
@@ -145,6 +149,63 @@ def show_debt_payment(options_window):
     example_label = tk.Label(payment_window, text="Example:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
     example_label.pack()
 
+def show_investment_options(main_window):
+    options_window = tk.Toplevel(main_window)
+    options_window.title("Investment Account Options")
+    options_window.geometry("400x300")
+    options_window.resizable(False, False)
+    options_window.config(bg="#F5F5F5")
+
+    header_label = tk.Label(options_window, text="Investment Account Options", font=("Helvetica", 16), bg="#F5F5F5",
+                            fg="#333333")
+    header_label.pack(pady=20)
+
+    create_button = tk.Button(options_window, text="Creating an Investment Acc", font=("Helvetica", 14), bg="#4CAF50",
+                              fg="#FFFFFF",
+                              activebackground="#4CAF50", activeforeground="#FFFFFF", bd=0, highlightthickness=0,
+                              command=lambda: show_create_investment(options_window))
+    create_button.pack(pady=10)
+
+    maximize_button = tk.Button(options_window, text="Proposed Investments", font=("Helvetica", 14), bg="#2196F3",
+                                fg="#FFFFFF",
+                                activebackground="#2196F3", activeforeground="#FFFFFF", bd=0, highlightthickness=0,
+                                command=lambda: show_proposed_investments(options_window))
+    maximize_button.pack()
+
+def show_create_investment(options_window):
+    create_window = tk.Toplevel(options_window)
+    create_window.title("Create Investment Acc")
+    create_window.geometry("400x300")
+    create_window.resizable(False, False)
+    create_window.config(bg="#F5F5F5")
+
+    header_label = tk.Label(create_window, text="Creating an Investment Acc", font=("Helvetica", 16), bg="#F5F5F5", fg="#333333")
+    header_label.pack(pady=20)
+
+    # Add the explanation and example for creating an emergency fund
+    explanation_label = tk.Label(create_window, text="Here's how you can create Investment Acc:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+    explanation_label.pack()
+
+    example_label = tk.Label(create_window, text="Example:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+    example_label.pack()
+
+def show_proposed_investments(options_window):
+    maximize_window = tk.Toplevel(options_window)
+    maximize_window.title("Proposed Investments")
+    maximize_window.geometry("400x300")
+    maximize_window.resizable(False, False)
+    maximize_window.config(bg="#F5F5F5")
+
+    header_label = tk.Label(maximize_window, text="Proposed Investments", font=("Helvetica", 16), bg="#F5F5F5", fg="#333333")
+    header_label.pack(pady=20)
+
+    # Add the explanation and example for maximizing an emergency fund
+    explanation_label = tk.Label(maximize_window, text="Proposed Investments:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+    explanation_label.pack()
+
+    example_label = tk.Label(maximize_window, text="Example:", font=("Helvetica", 14), bg="#F5F5F5", fg="#333333")
+    example_label.pack()
+
 # Create the main window
 root = tk.Tk()
 root.title("Login or Signup")
@@ -177,7 +238,7 @@ button_frame = tk.Frame(root, bg="#F5F5F5")
 login_button = tk.Button(button_frame, text="Login", font=("Helvetica", 14), bg="#4CAF50", fg="#FFFFFF",
                             activebackground="#4CAF50", activeforeground="#FFFFFF", bd=0, highlightthickness=0, command=login)
 login_button.pack(side=tk.LEFT, padx=(20, 10), ipadx=10, ipady=8, fill=tk.BOTH, expand=True)
-signup_button = tk.Button(button_frame, text="Signup", font=("Helvetica", 14), bg="#2196F3", fg="#FFFFFF", activebackground="#2196F3",  
+signup_button = tk.Button(button_frame, text="Signup", font=("Helvetica", 14), bg="#2196F3", fg="#FFFFFF", activebackground="#2196F3",
                             activeforeground="#FFFFFF", bd=0, highlightthickness=0, command=signup)
 signup_button.pack(side=tk.LEFT, padx=(0, 20), ipadx=10, ipady=8, fill=tk.BOTH, expand=True)
 button_frame.pack(fill=tk.BOTH, padx=40, pady=(0, 20))
