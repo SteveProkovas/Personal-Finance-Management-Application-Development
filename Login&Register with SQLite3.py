@@ -1,3 +1,4 @@
+#User Authentication System
 import sqlite3
 
 # Establish a connection to the SQLite database
